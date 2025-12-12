@@ -9,10 +9,8 @@ struct A
 
 int main()
 {
-    Date date(23, 7, 2025);
+    Date date1(11, 5, 2023);
+    Date date2 = 
 
-    A* aptr = new A;
-    
-    (*aptr).value = 100;
-    aptr->value = 200;
+    std::cout << date1.DateSpan(date2) << "\n";
 }

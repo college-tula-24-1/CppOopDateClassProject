@@ -120,7 +120,18 @@ int Date::YearDays()
 
 int Date::DateSpan(Date other)
 {
+	Date& minDate{ (this->CompareTo(other) < 0) ? *this : other };
+	Date& maxDate{ (this->CompareTo(other) > 0) ? *this : other };
+
+	int minDateDays{ minDate.YearDays() };
+	int maxDateDays{ maxDate.YearDays() };
+
+	for (int year{ minDate.year }; year < maxDate.year; year++)
+		maxDateDays += TotalDays + IsLeapYear(year);
+
+	int days{ maxDateDays - minDateDays };
 	
+	return (this == &minDate) ? days : -days;
 }
 
 Date Date::Now()

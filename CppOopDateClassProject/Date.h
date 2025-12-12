@@ -9,6 +9,8 @@ class Date
 	int year;
 
 	int monthDays[13]{ 0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
+
+	const int TotalDays{ 365 };
 public:
 	
 	Date(int day, int month, int year);
